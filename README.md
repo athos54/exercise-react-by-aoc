@@ -59,3 +59,15 @@ To run tests you can do one of this:
 - `npm run test`
 
 - `npm run test:coverage:html`
+
+# Possible improvements
+
+On the exercise I have limited myself to doing what was asked for. But, depending the project size, it could be approached from different points of view.
+
+For example, if the final users have diferents languages, will be necesary implement an i18n for translations.
+
+Depending the relations with diferents components and, tree structure, and size of project, we could create diferent context, use redux, or other solutions to manage this.
+
+If the mayority of users are on mobile, then we need think on show the table on a diferent way, to make easy display the table on device.
+
+At the performance level, depending the requeriments, we could think on a static site, generating statics files, avoiding the user download our bundle js, certainly improving first content paint (FCP) and large content paint (LCP)
