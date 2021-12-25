@@ -27,3 +27,31 @@ To complete the knowledge test, you must complete the following goals:
 - Unit Testing
 
 - Create custom 404 Error Page
+
+## Run and see the exercise
+
+You can see the project running on vercel, on this link [https://alea-kappa.vercel.app](https://alea-kappa.vercel.app)
+
+Or, you can run it on your local machine. To start the project you can follow this steps:
+
+- Clone the repo
+
+  `git clone https://github.com/athos54/exercise-react-by-aoc.git`
+
+- Enter on project folder
+
+  `cd exercise-react-by-aoc`
+
+- Install dependencies (have a cup of coffee ☕️ while the dependencies are being installed)
+
+  `npm i`
+
+- Run the project
+
+  `npm start`
+
+To run tests you can do one of this:
+
+- `npm run test`
+
+- `npm run test:coverage:html`
