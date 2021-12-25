@@ -27,8 +27,8 @@ describe("NavMenu component", () => {
     );
   });
 
-  it("nav menu should have 3 items", () => {
+  it("nav menu should have 2 items", () => {
     const component = parentComponent.container.querySelectorAll("a");
-    expect(component.length).toEqual(3);
+    expect(component.length).toEqual(2);
   });
 });

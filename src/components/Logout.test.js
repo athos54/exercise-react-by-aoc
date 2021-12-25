@@ -21,12 +21,12 @@ describe("Logout component", () => {
     );
   });
 
-  it("Must have a logout button", () => {
-    component.getByText("logout");
+  it("Must have a logout link", () => {
+    component.getByText(/logout/i);
   });
 
   it("logout should call context.auth.logout", () => {
-    const button = component.getByText("logout");
+    const button = component.getByText(/logout/i);
     fireEvent.click(button);
     expect(auth.logout).toHaveBeenCalledTimes(1);
   });

@@ -7,7 +7,12 @@ describe("Table pagination actions", () => {
     const onPageChange = jest.fn();
 
     const component = render(
-      <TablePaginationActions onPageChange={onPageChange} />
+      <TablePaginationActions
+        count={3}
+        page={1}
+        rowsPerPage={1}
+        onPageChange={onPageChange}
+      />
     );
 
     const firstPageBtn = component.container.querySelector(
@@ -22,7 +27,12 @@ describe("Table pagination actions", () => {
     const onPageChange = jest.fn();
 
     const component = render(
-      <TablePaginationActions onPageChange={onPageChange} />
+      <TablePaginationActions
+        count={3}
+        page={1}
+        rowsPerPage={1}
+        onPageChange={onPageChange}
+      />
     );
 
     const firstPageBtn = component.container.querySelector(

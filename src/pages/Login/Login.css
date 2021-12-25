@@ -1,0 +1,15 @@
+.login-container {
+  overflow: hidden;
+}
+.login-background {
+  min-height: 100vh;
+  background-image: url(https://picsum.photos/500/600);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-inputs {
+  margin: auto;
+  margin-top: 4rem;
+  width: 80%;
+}
