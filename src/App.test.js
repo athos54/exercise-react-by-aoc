@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App component", () => {
+  test("App component should render login at startup", () => {
+    const component = render(<App />);
+    component.getByPlaceholderText("Enter your email");
+    component.getByPlaceholderText("Enter your password");
+    component.getByText("Login");
+  });
 });
