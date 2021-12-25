@@ -30,6 +30,10 @@ To complete the knowledge test, you must complete the following goals:
 
 ## Run and see the exercise
 
+IMPORTANT NOTE: To login in the application you must use this email address with any password
+
+> eve.holt@reqres.in
+
 You can see the project running on vercel, on this link [https://alea-kappa.vercel.app](https://alea-kappa.vercel.app)
 
 Or, you can run it on your local machine. To start the project you can follow this steps:
