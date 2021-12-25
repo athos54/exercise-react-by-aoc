@@ -31,19 +31,19 @@ describe("Login component", () => {
       </AuthContext.Provider>
     );
   });
-  test("Login component should render input text", () => {
+  it("Login component should render input text", () => {
     component.getByPlaceholderText("Enter your email");
   });
 
-  test("Login component should render input password", () => {
+  it("Login component should render input password", () => {
     component.getByPlaceholderText("Enter your password");
   });
 
-  test("Login component should render login button", () => {
+  it("Login component should render login button", () => {
     component.getByText("Login");
   });
 
-  test("success login button should trigger handleSubmit method and redirect to /home", async () => {
+  it("success login button should trigger handleSubmit method and redirect to /home", async () => {
     authService.login.mockResolvedValueOnce({ data: { token: "asdf" } });
     const button = component.getByText("Login");
     act(() => {
@@ -54,7 +54,7 @@ describe("Login component", () => {
     expect(window.location.href).toBe("http://localhost/home");
   });
 
-  test("bad login button should trigger handleSubmit method and redirect to /home", async () => {
+  it("bad login button should trigger handleSubmit method and redirect to /home", async () => {
     authService.login.mockRejectedValueOnce("Error");
     const button = component.getByText("Login");
 

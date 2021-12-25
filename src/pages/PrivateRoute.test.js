@@ -34,13 +34,13 @@ describe("Private route", () => {
     jest.mock("services/auth");
   });
 
-  test(`PrivateRoute with cookie should render hello private`, () => {
+  it(`PrivateRoute with cookie should render hello private`, () => {
     authService.getAuthCookie = jest.fn(() => "mycookie");
     const component = render(componentTemplate);
     component.getByText("Hello private");
   });
 
-  test(`PrivateRoute without cookie should render /login path`, () => {
+  it(`PrivateRoute without cookie should render /login path`, () => {
     authService.getAuthCookie = jest.fn(() => undefined);
     const component = render(componentTemplate);
     component.getByText("Hello login");

@@ -6,7 +6,6 @@ import Page404 from "./Page404/Page404";
 import PrivateRoute from "./PrivateRoute";
 import AuthContext from "context/AuthContext";
 import Users from "./Users/Users";
-import NavMenu from "components/NavMenu";
 import PageContainer from "components/PageContainer";
 
 const AppRoutes = () => {

@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import Users from "./Users";
 
 describe("Users component", () => {
-  test("Users component should render", () => {
+  it("Users component should render", () => {
     const component = render(<Users />);
 
     component.getByText("Avatar");

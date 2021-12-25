@@ -30,12 +30,12 @@ const Login = (props) => {
   return (
     <div className="login-container">
       <div className="row">
-        <div className="col login-background"></div>
+        <div className="col d-none d-md-block login-background"></div>
 
         <div className="col">
           <div className="login-inputs row">
             <div className="mb-5">
-              <img src="/logoipsum-logo-49.svg" />
+              <img src="/logoipsum-logo-49.svg" alt="logo" loading="lazy" />
             </div>
             <form onSubmit={handleSubmit}>
               <div className="">

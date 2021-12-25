@@ -5,7 +5,7 @@ import { API } from "config/index";
 jest.mock("axios");
 
 describe("users service", () => {
-  test("getUsers should be call to /users", () => {
+  it("getUsers should be call to /users", () => {
     axios.get.mockResolvedValueOnce({ data: { page: 1 } });
     const params = {};
     getUsers(params);

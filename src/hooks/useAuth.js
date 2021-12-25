@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getAuthCookie, removeAuthCookie, setAuthCookie } from "services/auth";
 
 export const useAuth = () => {

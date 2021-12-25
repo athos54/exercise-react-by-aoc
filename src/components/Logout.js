@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { removeAuthCookie } from "services/auth";
 import AuthContext from "context/AuthContext";
 
 const Logout = () => {

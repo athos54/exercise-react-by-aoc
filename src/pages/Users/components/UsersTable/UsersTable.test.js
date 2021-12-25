@@ -45,20 +45,20 @@ describe("UsersTable component", () => {
     );
   });
 
-  test("UsersTable component should render", () => {
+  it("UsersTable component should render", () => {
     component.getByText("Avatar");
     component.getByText("Name");
     component.getByText("LastName");
     component.getByText("Email");
   });
 
-  test("Should load data from usersData", () => {
+  it("Should load data from usersData", () => {
     component.getByText(usersData.data[0].first_name);
     component.getByText(usersData.data[0].last_name);
     component.getByText(usersData.data[0].email);
   });
 
-  test("if there are more than one page, last page button should call to handlePageChange", () => {
+  it("if there are more than one page, last page button should call to handlePageChange", () => {
     const lastPageButton = component.container.querySelector(
       "button[aria-label='last page']"
     );
@@ -66,7 +66,7 @@ describe("UsersTable component", () => {
     expect(handlePageChange).toHaveBeenCalledTimes(1);
   });
 
-  test("if rowsPerPage select change handleChangeRowsPerPage should be called", () => {
+  it("if rowsPerPage select change handleChangeRowsPerPage should be called", () => {
     const rowsPerPageSelect = component.container.querySelector(
       "select[aria-label='rows per page']"
     );
@@ -74,7 +74,7 @@ describe("UsersTable component", () => {
     expect(handleChangeRowsPerPage).toHaveBeenCalledTimes(1);
   });
 
-  test("next page should show next result", async () => {
+  it("next page should show next result", async () => {
     const nextPageButton = component.container.querySelector(
       "button[aria-label='next page']"
     );

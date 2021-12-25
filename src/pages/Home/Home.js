@@ -1,9 +1,11 @@
+import PageTitle from "components/PageTitle";
 import React from "react";
 
 const Home = () => {
   return (
     <section>
-      <h2>I'm home page</h2>
+      <PageTitle title="I'm home page" />
+
       <p>
         loremMollit cillum sunt in minim nisi deserunt. Sint dolore velit non
         enim laboris exercitation exercitation. Aliqua cillum ullamco ad elit.

@@ -5,7 +5,7 @@ const PageContainer = ({ children }) => {
   return (
     <div>
       <NavMenu />
-      <div className="p-5">{children}</div>
+      <div className="p-2 p-md-5">{children}</div>
     </div>
   );
 };

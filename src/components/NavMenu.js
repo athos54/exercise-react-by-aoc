@@ -1,11 +1,9 @@
-import { useAuth } from "hooks/useAuth";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { getAuthCookie } from "services/auth";
 import Logout from "./Logout";
 import AuthContext from "context/AuthContext";
 import "./NavMenu.css";
-const NavMenu = ({ auth }) => {
+const NavMenu = () => {
   const context = useContext(AuthContext);
 
   return (

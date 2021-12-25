@@ -19,9 +19,7 @@ export const useUsers = () => {
     loadData();
   }, [filters]);
 
-  const loadData = () => {
-    getUsers(filters).then((res) => setUsersData(res));
-  };
+  const loadData = () => getUsers(filters).then((res) => setUsersData(res));
 
   const handleChangeRowsPerPage = (e) => {
     setFilters({

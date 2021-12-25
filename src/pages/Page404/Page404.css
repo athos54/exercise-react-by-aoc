@@ -1,0 +1,23 @@
+.page-404-container {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-404-container .d404 {
+  font-family: monospace;
+  font-size: 8rem;
+  color: #444;
+  line-height: 1;
+}
+
+.page-404-container .error {
+  color: #333;
+}
+
+.page-404-container .message {
+  color: #444;
+  text-align: center;
+}

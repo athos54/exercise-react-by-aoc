@@ -7,7 +7,7 @@ jest.mock("cookie");
 jest.mock("axios");
 
 describe("auth service", () => {
-  test("login user should be call to /login", () => {
+  it("login user should be call to /login", () => {
     const email = "athos.oc@gmail.com";
     const password = "1234";
 
@@ -20,14 +20,14 @@ describe("auth service", () => {
     });
   });
 
-  test(`getAuthCookie should call cookie with ${AUTH_TOKEN_NAME} `, () => {
+  it(`getAuthCookie should call cookie with ${AUTH_TOKEN_NAME} `, () => {
     cookie.load = jest.fn();
     cookie.load.mockResolvedValueOnce("tokenString");
     getAuthCookie();
     expect(cookie.load).toHaveBeenCalledWith(AUTH_TOKEN_NAME);
   });
 
-  test(`setAuthCookie('asdf') should call cookie.save with ${AUTH_TOKEN_NAME} asdf and path /`, () => {
+  it(`setAuthCookie('asdf') should call cookie.save with ${AUTH_TOKEN_NAME} asdf and path /`, () => {
     cookie.save = jest.fn();
     cookie.save;
     setAuthCookie("asdf");
@@ -35,7 +35,7 @@ describe("auth service", () => {
       path: "/",
     });
   });
-  test(`removeAuthCookie() should call cookie.save with ${AUTH_TOKEN_NAME} and path /`, () => {
+  it(`removeAuthCookie() should call cookie.save with ${AUTH_TOKEN_NAME} and path /`, () => {
     cookie.remove = jest.fn();
     cookie.remove;
     removeAuthCookie();
