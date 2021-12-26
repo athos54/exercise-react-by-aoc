@@ -1,22 +1,15 @@
-import { render } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import { useInput } from "./useInput";
 
+import { renderHook, act } from "@testing-library/react-hooks";
+
 describe("useInput hook", () => {
-  let input, component;
-  beforeEach(() => {
-    const Aux = () => {
-      input = useInput();
-      return <div>test</div>;
-    };
-
-    component = render(<Aux />);
-  });
-
   it("onchange method should set value property", () => {
+    const { result } = renderHook(() => useInput());
+
     act(() => {
-      input.onChange({ target: { value: "fds" } });
+      result.current.onChange({ target: { value: "something" } });
     });
-    expect(input.value).toBe("fds");
+
+    expect(result.current.value).toBe("something");
   });
 });

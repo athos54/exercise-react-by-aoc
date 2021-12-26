@@ -1,58 +1,46 @@
-import { render } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import * as authService from "services/auth";
 import { useAuth } from "./useAuth";
-
+import { renderHook, act } from "@testing-library/react-hooks";
 jest.mock("services/auth");
 
 describe("useAuth hook", () => {
-  authService.getAuthCookie.mockClear();
-  let authHook, component;
   beforeEach(() => {
-    const Aux = () => {
-      authHook = useAuth();
-      return <div>test</div>;
-    };
-
-    component = render(<Aux />);
+    authService.getAuthCookie.mockClear();
   });
 
   it("login should call setAuthCookie", () => {
+    const { result } = renderHook(() => useAuth());
+
     act(() => {
-      authHook.login();
+      result.current.login();
     });
     expect(authService.setAuthCookie).toHaveBeenCalledTimes(1);
   });
 
   it("login should call setToken", () => {
+    const { result } = renderHook(() => useAuth());
+
     act(() => {
-      authHook.login("abcd");
+      result.current.login("abcd");
     });
-    expect(authHook.isLogued).toBe("abcd");
+    expect(result.current.isLogued).toBe("abcd");
   });
 
   it("logout should call removeAuthCookie", () => {
+    const { result } = renderHook(() => useAuth());
+
     act(() => {
-      authHook.logout();
+      result.current.logout();
     });
+
     expect(authService.removeAuthCookie).toHaveBeenCalledTimes(1);
   });
 
   it("On component start, should load cookie", () => {
     authService.getAuthCookie.mockImplementation(() => "cookie");
 
-    const Aux = () => {
-      authHook = useAuth();
-      return <div>test</div>;
-    };
+    const { result } = renderHook(() => useAuth());
 
-    render(<Aux />);
-    expect(authHook.isLogued).toBe("cookie");
+    expect(result.current.isLogued).toBe("cookie");
   });
 });
-
-// , () => ({
-//   setAuthCookie: jest.fn(),
-//   getAuthCookie: jest.fn("tokenString"),
-//   removeAuthCookie: jest.fn(),
-// })

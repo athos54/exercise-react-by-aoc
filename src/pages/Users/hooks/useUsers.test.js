@@ -1,4 +1,5 @@
-import { act, render, waitFor } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
+import { waitFor } from "@testing-library/react";
 import * as usersService from "services/users";
 import { useUsers } from "./useUsers";
 
@@ -13,36 +14,33 @@ const auxData = {
 };
 
 describe("useUsers hook", () => {
-  let component, AuxComponent, hook;
   beforeEach(() => {
     usersService.getUsers.mockClear();
-
-    AuxComponent = () => {
-      hook = useUsers();
-      return <div>test</div>;
-    };
   });
 
   it("at startup should call to getUsers", async () => {
     usersService.getUsers.mockResolvedValueOnce(auxData);
 
-    render(<AuxComponent />);
+    let myHook;
+    const { result } = renderHook(() => useUsers());
+    myHook = result;
 
     expect(usersService.getUsers).toHaveBeenCalledTimes(1);
+
     await waitFor(() => {
-      expect(hook.usersData).toBe(auxData);
+      expect(myHook.current.usersData).toBe(auxData);
     });
   });
 
   it("change rows per page should trigger a call with this per_page", async () => {
     usersService.getUsers.mockResolvedValue(auxData);
-
-    render(<AuxComponent />);
+    let myHook;
+    const { result } = renderHook(() => useUsers());
+    myHook = result;
 
     await waitFor(() => {
-      hook.handleChangeRowsPerPage({ target: { value: 10 } });
+      myHook.current.handleChangeRowsPerPage({ target: { value: 10 } });
     });
-
     expect(usersService.getUsers).toHaveBeenLastCalledWith({
       page: 0,
       per_page: 10,
@@ -51,13 +49,13 @@ describe("useUsers hook", () => {
 
   it("change page should trigger a call with this page", async () => {
     usersService.getUsers.mockResolvedValue(auxData);
-
-    render(<AuxComponent />);
+    let myHook;
+    const { result } = renderHook(() => useUsers());
+    myHook = result;
 
     await waitFor(() => {
-      hook.handlePageChange(10);
+      myHook.current.handlePageChange(10);
     });
-
     expect(usersService.getUsers).toHaveBeenLastCalledWith({
       page: 11,
       per_page: 5,
